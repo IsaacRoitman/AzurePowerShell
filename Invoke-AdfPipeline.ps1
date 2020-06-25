@@ -1,11 +1,33 @@
-﻿Clear-Host
+<#
+.Synopsis
+   Text based application to run specific ADF pipelines
+.DESCRIPTION
+   Text based application written in PowerShell to 
+.EXAMPLE
+   Example of how to use this cmdlet
+.EXAMPLE
+   Another example of how to use this cmdlet
+.INPUTS
+   Inputs to this cmdlet (if any)
+.OUTPUTS
+   Output from this cmdlet (if any)
+.NOTES
+   General notes
+.COMPONENT
+   The component this cmdlet belongs to
+.ROLE
+   The role this cmdlet belongs to
+.FUNCTIONALITY
+   The functionality that best describes this cmdlet
+#>
+Clear-Host
 $date = Get-Date
 Import-Module Az.Accounts,Az.DataFactory
 
 # Set variables
-$Subscription = 'b11918af-a87b-480e-ba88-369e9dadc5bf'
-$ResourceGroupName = 'testrg'
-$DataFactoryName = 'ircsadf'
+$Subscription = 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'
+$ResourceGroupName = "resourcegroupname"
+$DataFactoryName = "datafactoryname"
 
 # Check that Azure context is correct and initate login if needed
 $context = Get-AzContext
