@@ -2,13 +2,19 @@
 .Synopsis
    Text based application to run specific ADF pipelines
 .DESCRIPTION
-   Text based application written in PowerShell to 
+   Text based application written in PowerShell for running ADF (Azure Data Factory pipelines).  The goal of this application is to remove complexity
+   and provide business users with a simple interface to invoke specific ADF pipelines.
 .EXAMPLE
-   Example of how to use this cmdlet
-.EXAMPLE
-   Another example of how to use this cmdlet
+   .\Invoke-AdfPipelines
+   Please select a Data Factory Pipeline number to invoke:
+   1 - Pipeline1
+   2 - Blob to alternate region backup
+   3 - Cosmos to ADLS
+   4 - Exit
+   Select an option (1-4): 1
 .INPUTS
-   Inputs to this cmdlet (if any)
+   Variables for Subscription, ResourceGroupName, and DataFactoryName must be entered in the script
+   Variables for ADF pipeline names must be entered in the script
 .OUTPUTS
    Output from this cmdlet (if any)
 .NOTES
@@ -24,14 +30,13 @@ Clear-Host
 $date = Get-Date
 Import-Module Az.Accounts,Az.DataFactory
 
-# Set variables
+# Set variables for Azure subscription and ADF
 $Subscription = 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'
 $ResourceGroupName = "resourcegroupname"
 $DataFactoryName = "datafactoryname"
 
 # Check that Azure context is correct and initate login if needed
 $context = Get-AzContext
-
 if ($context.Subscription.Id -eq $Subscription)
 {
     Write-Host "`r`nSuccessfully connected to $($context.Subscription.Name) as $($context.Account.Id)`r`n" -ForegroundColor Green
@@ -80,7 +85,7 @@ do
     Write-Host "`r`nStarting pipeline $((Get-Variable -Name $x).Value), please wait. . ." -ForegroundColor Yellow
     "Job ID $job"
 
-    # Get detailed run results and display to screen
+    # Get detailed job results and display to screen, refresh status every 1 second
     do
     {
         $rundetails = Get-AzDataFactoryV2ActivityRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $job -RunStartedAfter $date -RunStartedBefore (Get-Date)
