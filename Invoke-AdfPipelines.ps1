@@ -15,25 +15,8 @@
 .INPUTS
    Variables for Subscription, ResourceGroupName, and DataFactoryName must be entered in the script
    Variables for the specific ADF pipeline names must be entered in the script
-   Switch statements to reflect the number of pipelines must be entered in the script (line 102)
+   Switch statements to invoke the correct number of pipelines must be entered in the script (starts with Invoke-AzDataFactoryV2Pipeline)
 .OUTPUTS
-    ResourceGroupName    : XXXXXX
-    DataFactoryName      : XXXXXX
-    ActivityRunId        : 25efb4cd-00ee-4d89-8a6b-414dd0b53273
-    ActivityName         : Copy data1
-    ActivityType         : Copy
-    PipelineRunId        : d06c6d8c-8877-4472-94b5-7242cc35445e
-    PipelineName         : pipeline1
-    Input                : {source, sink, enableStaging}
-    Output               : {dataRead, dataWritten, filesRead, filesWritten…}
-    LinkedServiceName    : 
-    ActivityRunStart     : 6/26/2020 2:01:06 PM
-    ActivityRunEnd       : 6/26/2020 2:01:57 PM
-    DurationInMs         : 51332
-    Status               : Succeeded
-    Error                : {errorCode, message, failureType, target…}
-    AdditionalProperties : {[retryAttempt, ], [iterationHash, ], [userProperties, {}], [recoveryStatus, None]…}
-
     ADF pipeline pipeline1 completed in 0 minutes and 51 seconds with status Succeeded
     Run another pipeline? (Press 'y' to run again or any key to exit):
 .NOTES
