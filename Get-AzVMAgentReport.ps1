@@ -9,10 +9,10 @@
    PS C:\> Get-AzVMAgentReport
    This will report on all VMs within the currently connected subscription
 .EXAMPLE
-   PS C:\>Get-AzVMAgentReport -VMName *vm1
+   PS C:\> Get-AzVMAgentReport -VMName *vm1
    Using the VMName parameter will report on a specific VM or wildcard match of VMs within the currently connected subscription (not required, * is default)
 .EXAMPLE
-   PS C:\>Get-AzVMAgentReport -SubscriptionName prod-subs-1 -VMName *
+   PS C:\> Get-AzVMAgentReport -SubscriptionName prod-subs-1 -VMName *
    Using the SubscriptionName parameter will connect to a specific Azure Subscription and report on all VMs (or specific VMs if VMName is utilized)
 .INPUTS
    Paramaters for VM name
