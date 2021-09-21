@@ -10,7 +10,12 @@ function Get-AzWebAppConfig ($ResourceGroupname)
         'Authorization'='Bearer ' + $token.AccessToken
     }
 
-    $apps = Get-AzWebApp -ResourceGroupName $ResourceGroupName | Where-Object Kind -EQ 'app'
+    if ($ResourceGroupName) {
+        $apps = Get-AzWebApp -ResourceGroupName $ResourceGroupName | Where-Object Kind -EQ 'app'
+    }
+    else {
+        $apps = Get-AzWebApp | Where-Object Kind -EQ 'app'
+    }
 
     foreach ($app in $apps) {
         $uri = 'https://management.azure.com/' + $apps.Id + '/config/web?api-version=2019-08-01'
