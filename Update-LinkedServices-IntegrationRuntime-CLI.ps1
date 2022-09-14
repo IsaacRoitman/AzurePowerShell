@@ -1,3 +1,7 @@
+# Script to update ADF Linked Services to a new Integrated Runtime
+# Uses a combination of PowerShell for scripting and AZ CLI for the update commands
+# Isaac H. Roitman, 9/2022
+
 # ADF information and filepath variables, ensure the new Linked Service is created first
 $localFilePath = "C:\Users\isroitma\OneDrive\IT\PowerShell\SCRIPTS\Azure\ADF"
 $ResourceGroupName = "testrg"
