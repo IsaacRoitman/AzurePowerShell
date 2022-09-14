@@ -31,7 +31,7 @@ foreach ($linkedService in $irLinkedServices)
         Write-Error "Error updating ADF Linked Service: $($linkedService.Name)"
     }
     else {
-        Write-Host "Updated new ADF Linked Service: $($linkedService.Name)"
+        Write-Host "Updated ADF Linked Service: $($linkedService.Name)"
         return $output
     }
 }
