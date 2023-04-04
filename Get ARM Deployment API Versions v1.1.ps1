@@ -1,6 +1,4 @@
 # https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/child-resource-name-type
-# https://about-azure.com/find-outdated-azure-arm-quickstart-templates-on-github/
-
 # Get ARM Deployoments with API Versions
 # Isaac H. Roitman, 4/2023
 
